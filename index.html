@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edic García · Coach Ontológico</title>
+<meta name="description" content="Coach ontológico que aplica el coaching en su propia vida y lo documenta en público. Videos, herramientas gratis y sesiones de coaching.">
+<link rel="icon" href="img/edic.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--noche:#0B1220;--noche2:#111a2e;--azul:#3B82F6;--cian:#22D3EE;--magenta:#FF3EA5;--atardecer:#FF8A3D;--blanco:#F8FAFC;--gris:#94A3B8;--linea:#1f2a44}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--noche);color:var(--blanco);font-family:Montserrat,system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:10;background:rgba(11,18,32,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.logo{font-family:Audiowide;font-size:18px;text-decoration:none;letter-spacing:1px}
+.logo span{color:var(--cian)}
+.menu{display:flex;gap:22px;font-weight:600;font-size:14px}
+.menu a{text-decoration:none;color:var(--gris)}.menu a:hover{color:var(--blanco)}
+.btn{display:inline-block;padding:13px 24px;border-radius:12px;font-weight:800;text-decoration:none;border:0;cursor:pointer;font-family:inherit;font-size:15px;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-prim{background:var(--atardecer);color:var(--noche);box-shadow:0 0 24px rgba(255,138,61,.35)}
+.btn-sec{border:2px solid var(--azul);color:var(--blanco)}
+.btn-chico{padding:9px 16px;font-size:13px}
+/* hero */
+.hero{position:relative;padding:80px 0 70px;overflow:hidden}
+.hero:before{content:"";position:absolute;right:-200px;top:-150px;width:700px;height:700px;background:radial-gradient(circle,rgba(59,130,246,.35),transparent 65%);z-index:-1}
+.hero:after{content:"";position:absolute;left:-200px;bottom:-250px;width:600px;height:600px;background:radial-gradient(circle,rgba(255,62,165,.18),transparent 65%);z-index:-1}
+.hero .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:center}
+.tag{font-family:Audiowide;color:var(--cian);font-size:14px;letter-spacing:3px}
+h1{font-size:clamp(36px,5.5vw,62px);line-height:1.08;font-weight:800;margin:14px 0 18px}
+h1 em{font-style:normal;color:var(--atardecer)}
+.hero p{font-size:18px;color:#cbd5e1;max-width:560px}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.foto{position:relative;justify-self:center}
+.foto img{width:min(340px,80vw);aspect-ratio:1;border-radius:50%;object-fit:cover;border:4px solid var(--azul);box-shadow:0 0 60px rgba(59,130,246,.45)}
+.badge{position:absolute;bottom:14px;left:-10px;background:var(--noche2);border:1px solid var(--linea);padding:10px 16px;border-radius:12px;font-size:13px}
+.badge b{font-family:Audiowide;color:var(--cian);font-size:20px;display:block;line-height:1.1}
+/* barra de progreso */
+.progreso{margin-top:34px;max-width:520px}
+.progreso small{color:var(--gris);font-weight:600}
+.barra{height:10px;background:var(--linea);border-radius:10px;margin-top:8px;overflow:hidden}
+.barra i{display:block;height:100%;background:linear-gradient(90deg,var(--azul),var(--cian));border-radius:10px}
+/* secciones */
+section{padding:70px 0}
+section.alt{background:var(--noche2);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+h2{font-size:clamp(28px,3.6vw,40px);font-weight:800;line-height:1.15;margin:8px 0 12px}
+.intro{color:#cbd5e1;max-width:680px;margin-bottom:34px}
+.grid{display:grid;gap:22px}
+.g4{grid-template-columns:repeat(4,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
+.card{background:var(--noche);border:1px solid var(--linea);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+section.alt .card{background:var(--noche2);background:#0e1628}
+.card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.card .c{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h3{font-size:17px;line-height:1.3}
+.card p{font-size:14px;color:var(--gris);flex:1}
+.mini{font-family:Audiowide;font-size:11px;letter-spacing:2px;color:var(--cian)}
+.pronto{font-size:12px;font-weight:700;color:var(--atardecer)}
+/* frase del día */
+.frase{border-left:6px solid var(--magenta);background:linear-gradient(90deg,rgba(255,62,165,.10),transparent);padding:26px 30px;border-radius:0 16px 16px 0;margin-top:10px}
+.frase q{font-size:clamp(20px,2.6vw,28px);font-weight:800;quotes:"“" "”"}
+.frase small{display:block;margin-top:10px;color:var(--gris)}
+/* herramientas */
+.tool{background:#0e1628;border:1px solid var(--linea);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:8px}
+.tool .ico{font-size:30px}
+.tool h3{font-size:18px}.tool p{font-size:14px;color:var(--gris);flex:1}
+.pestanas{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+.pestanas button{background:transparent;border:2px solid var(--linea);color:var(--gris);padding:9px 18px;border-radius:30px;font:700 14px Montserrat;cursor:pointer}
+.pestanas button.on{border-color:var(--cian);color:var(--blanco)}
+/* sesiones */
+.pasos{counter-reset:p}
+.paso{background:var(--noche);border:1px solid var(--linea);border-radius:16px;padding:24px;position:relative}
+.paso:before{counter-increment:p;content:counter(p);font-family:Audiowide;color:var(--noche);background:var(--cian);width:36px;height:36px;border-radius:50%;display:grid;place-items:center;margin-bottom:12px}
+.paso h3{font-size:18px;margin-bottom:6px}.paso p{font-size:14px;color:var(--gris)}
+.oferta{margin-top:30px;border:2px solid var(--atardecer);border-radius:20px;padding:30px;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:center;background:linear-gradient(120deg,rgba(255,138,61,.08),transparent)}
+.oferta h3{font-size:24px;margin-bottom:8px}
+.oferta ul{list-style:none;display:grid;gap:8px;margin-top:12px}
+.oferta li:before{content:"✓ ";color:var(--cian);font-weight:800}
+.cupos{font-family:Audiowide;color:var(--atardecer);font-size:46px;line-height:1}
+.nota{font-size:13px;color:var(--gris);margin-top:10px}
+.noes{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+.noes div{border:1px dashed var(--linea);border-radius:12px;padding:14px;font-size:13px;color:var(--gris)}
+.noes b{color:var(--blanco);display:block;margin-bottom:2px}
+/* contacto */
+form{display:grid;gap:14px;max-width:560px}
+input,textarea,select{width:100%;background:#0e1628;border:1px solid var(--linea);color:var(--blanco);padding:13px 14px;border-radius:10px;font:15px Montserrat}
+textarea{min-height:110px;resize:vertical}
+label{font-size:13px;font-weight:700;color:var(--gris)}
+.contacto{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.redes{display:grid;gap:12px}
+.redes a{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--linea);border-radius:12px;text-decoration:none;font-weight:700}
+.redes a:hover{border-color:var(--azul)}
+footer{padding:36px 0;color:var(--gris);font-size:13px;text-align:center;border-top:1px solid var(--linea)}
+footer b{font-family:Audiowide;color:var(--blanco);font-weight:400}
+@media(max-width:900px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:1fr}.noes{grid-template-columns:repeat(2,1fr)}.oferta,.contacto{grid-template-columns:1fr}}
+@media(max-width:700px){.menu{display:none}.hero{padding:44px 0}.hero .wrap{grid-template-columns:1fr}.foto{order:-1}.foto img{width:200px}.badge{left:auto;right:-20px;bottom:0}.g4,.g2{grid-template-columns:1fr}section{padding:54px 0}.noes{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="logo" href="#">EDIC<span>COACH</span></a>
+  <div class="menu"><a href="#proceso">Mi proceso</a><a href="#videos">Videos</a><a href="#herramientas">Herramientas</a><a href="#sesiones">Sesiones</a><a href="#contacto">Contacto</a></div>
+  <a class="btn btn-prim btn-chico" href="#sesiones">Sesión gratis</a>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <div>
+    <div class="tag">COACH ONTOLÓGICO · DE 0 A 100</div>
+    <h1>Me aplico el coaching a mí mismo. <em>En público.</em></h1>
+    <p>Soy Edic García. Trabajo, soy papá y me titulé de coach ontológico. Ahora uso lo que aprendí en mi propia vida —cuerpo, plata, trabajo, familia— y lo documento semana a semana, con datos y sin pose.</p>
+    <div class="cta">
+      <a class="btn btn-prim" href="#sesiones">Quiero una sesión</a>
+      <a class="btn btn-sec" href="https://www.youtube.com/@ediccoach" target="_blank" rel="noopener">Ver el canal</a>
+    </div>
+    <div class="progreso">
+      <small id="diaTxt">Día 0 · el proceso empezó el 4 de noviembre de 2026</small>
+      <div class="barra"><i id="diaBarra" style="width:2%"></i></div>
+    </div>
+  </div>
+  <div class="foto">
+    <img src="img/edic.jpg" alt="Edic García, coach ontológico">
+    <div class="badge"><b id="diaNum">DÍA 0</b>de 365, en proceso</div>
+  </div>
+</div></header>
+
+<section id="proceso" class="alt"><div class="wrap">
+  <div class="tag">APRENDIZAJE DEL DÍA</div>
+  <h2>Una idea para llevarte hoy</h2>
+  <div class="frase"><q id="frase">Un pedido sin "para cuándo" es un deseo en voz alta.</q><small id="fraseDe">De mi video "Me cuesta pedir ayuda"</small></div>
+  <p class="nota">Cambia todos los días. Son ideas que voy aprendiendo y practicando en mi proceso.</p>
+</div></section>
+
+<section id="videos"><div class="wrap">
+  <div class="tag">VIDEOS</div>
+  <h2>Mi proceso, video a video</h2>
+  <p class="intro">Un video nuevo cada semana. Cada uno toma una distinción del coaching ontológico, la paso por mi vida y te dejo una herramienta gratis para que la practiques.</p>
+  <div class="grid g4" id="listaVideos"></div>
+  <p class="nota" style="margin-top:20px">Y Shorts de lunes a viernes en <a href="https://www.youtube.com/@ediccoach/shorts" target="_blank" rel="noopener">YouTube</a>, TikTok e Instagram (@ediccoach).</p>
+</div></section>
+
+<section id="herramientas" class="alt"><div class="wrap">
+  <div class="tag">HERRAMIENTAS GRATIS</div>
+  <h2>Para practicar, no solo para leer</h2>
+  <p class="intro">Hojas de trabajo que creo para mi propio proceso y que comparto gratis. Imprímelas o complétalas a mano.</p>
+  <div class="pestanas"><button class="on" data-t="coachee">Para tu proceso personal</button><button data-t="coach">Para coaches en formación</button></div>
+  <div class="grid g4" id="listaHerr"></div>
+</div></section>
+
+<section id="sesiones"><div class="wrap">
+  <div class="tag">SESIONES 1 A 1</div>
+  <h2>¿Sabes lo que quieres cambiar, pero no lo sostienes?</h2>
+  <p class="intro">El coaching ontológico es un proceso de conversaciones. Yo no te digo qué hacer: pregunto, escucho y te acompaño para que encuentres tus propias respuestas y las conviertas en acciones que eliges tú.</p>
+  <div class="grid g3 pasos">
+    <div class="paso"><h3>Charla de acuerdo</h3><p>30 minutos, gratis y sin compromiso. Vemos qué quieres lograr y si el coaching es lo que necesitas.</p></div>
+    <div class="paso"><h3>Sesiones semanales</h3><p>Por videollamada, de 45 a 60 minutos. Cada una termina con acciones concretas, elegidas por ti.</p></div>
+    <div class="paso"><h3>Seguimiento</h3><p>Cada sesión empieza revisando lo que te comprometiste a hacer. Así el cambio se sostiene.</p></div>
+  </div>
+
+  <div class="oferta">
+    <div>
+      <div class="mini">LANZAMIENTO</div>
+      <h3>3 procesos gratis para empezar</h3>
+      <p>Estoy sumando horas de práctica para mi credencial internacional de coach. Por eso abro 3 lugares sin costo, con una condición:</p>
+      <ul>
+        <li>Aceptas que la sesión se grabe.</li>
+        <li>La grabación es <b>confidencial</b>: solo la usamos mi mentor de la escuela y yo, para mi formación. Nunca se publica.</li>
+        <li>Firmamos un acuerdo simple antes de empezar.</li>
+      </ul>
+      <p class="nota">Después de estos 3 lugares, las sesiones tendrán un precio de lanzamiento bajo, a propósito.</p>
+    </div>
+    <div style="text-align:center">
+      <div class="cupos" id="cupos">3</div><div class="nota" style="margin:4px 0 18px">lugares disponibles</div>
+      <a class="btn btn-prim" id="btnAgenda" href="#contacto">Agendar charla gratis</a>
+    </div>
+  </div>
+
+  <div class="noes">
+    <div><b>No es terapia</b>No trabajo diagnósticos ni salud mental. Si aparece, te derivo a un profesional.</div>
+    <div><b>No es asesoría</b>No te digo qué hacer. Las respuestas salen de ti, y por eso las cumples.</div>
+    <div><b>No es una clase</b>Para aprender herramientas está el canal. En la sesión, el tema eres tú.</div>
+    <div><b>No es magia</b>El trabajo lo haces tú. Yo pregunto, escucho y te sostengo en tu compromiso.</div>
+  </div>
+</div></section>
+
+<section id="contacto" class="alt"><div class="wrap contacto">
+  <div>
+    <div class="tag">CONTACTO</div>
+    <h2>Escríbeme</h2>
+    <p class="intro">Para pedir una charla de acuerdo, hacerme una pregunta o contarme qué te pareció un video.</p>
+    <form id="form" action="" method="POST">
+      <div><label for="n">Nombre</label><input id="n" name="nombre" required></div>
+      <div><label for="e">Correo</label><input id="e" name="correo" type="email" required></div>
+      <div><label for="m">¿Qué te gustaría trabajar o preguntarme?</label><textarea id="m" name="mensaje" required></textarea></div>
+      <button class="btn btn-prim" type="submit">Enviar</button>
+      <p class="nota" id="formNota">Tus datos se usan solo para responderte.</p>
+    </form>
+  </div>
+  <div class="redes" style="margin-top:56px">
+    <a href="https://www.youtube.com/@ediccoach" target="_blank" rel="noopener">▶ YouTube · @ediccoach</a>
+    <a href="https://www.tiktok.com/@ediccoach" target="_blank" rel="noopener">♪ TikTok · @ediccoach</a>
+    <a href="https://www.instagram.com/ediccoach" target="_blank" rel="noopener">◎ Instagram · @ediccoach</a>
+  </div>
+</div></section>
+
+<footer><b>EDIC GARCÍA</b> · Coach ontológico · De 0 a 100, en proceso<br>© <span id="anio">2026</span></footer>
+
+<script>
+// ====== CONFIGURACIÓN (lo único que hay que tocar) ======
+const CONFIG = {
+  inicio: "2026-11-04",          // Día 0 del proceso
+  agenda: "",                    // enlace de la agenda (Google Calendar o Calendly). Vacío = lleva al formulario
+  formulario: "",                // dirección de envío del formulario (Formspree u otro). Vacío = abre el correo
+  correo: "",                    // correo de contacto (solo si quieres mostrarlo)
+  cuposLibres: 3
+};
+const VIDEOS = [
+  {t:"Día 0: mi punto de partida", d:"Me titulé de coach y empiezo mi transformación real.", img:"img/dia0.jpg", url:"https://youtu.be/o-3fae3GtHg", sale:"2026-12-06"},
+  {t:"\"No soy constante\"", d:"El juicio que me frenó durante años, y cómo desarmarlo.", img:"img/semana1.jpg", url:"https://youtu.be/ZhorTI-FHiU", sale:"2026-12-13"},
+  {t:"Declarar un no", d:"Decía que sí a todo. El poder de decir basta.", img:"img/semana2.jpg", url:"https://youtu.be/y3AjX-exH-g", sale:"2026-12-20"},
+  {t:"Me cuesta pedir ayuda", d:"Hago todo solo, y no es fortaleza. Cómo pedir de verdad.", img:"img/semana3.jpg", url:"", sale:"2026-12-27"}
+];
+const HERR = {
+  coachee:[
+    {i:"🧭", t:"Mi punto de partida", d:"Diagnóstico de dónde estás hoy, con columnas para comparar en el Día 30.", url:"https://drive.google.com/file/d/1f8vFiCpWpAgm3KxaFLOGsegHEzMryw-8/view"},
+    {i:"⚖️", t:"Del juicio al hecho", d:"Desarma la frase que te frena (\"no soy constante\") y define tu mínimo.", url:"https://drive.google.com/file/d/1UkoZZhCJc9HceG4ena24rGKURKisGKoW/view"},
+    {i:"✋", t:"Mi declaración de basta", d:"Para dejar de decir que sí cuando por dentro es un no.", url:"https://drive.google.com/file/d/1gyP259xgnv0-hHsLRaK6XYv4_K_cKBnF/view"},
+    {i:"🤝", t:"Mi pedido claro", d:"Arma un pedido con sus 5 partes y registra tus pedidos y ofertas.", url:"https://drive.google.com/file/d/1klj1aQcEMfNYH0_cPTn6SC7Fy6FCQPfT/view"}
+  ],
+  coach:[
+    {i:"⏱️", t:"Registro de horas ACC", d:"Planilla para llevar tus horas de coaching rumbo a la credencial ACC de ICF.", url:""},
+    {i:"🎙️", t:"Cómo grabo y registro mis sesiones", d:"Mi circuito: acuerdo, grabación, transcripción y registro.", url:""},
+    {i:"❓", t:"Banco de preguntas poderosas", d:"Preguntas para usar en sesión y contigo mismo.", url:""}
+  ]
+};
+const FRASES = [
+  ["Un pedido sin \"para cuándo\" es un deseo en voz alta.","Me cuesta pedir ayuda"],
+  ["Pedir ayuda es una señal de fortaleza, no de debilidad.","Me cuesta pedir ayuda"],
+  ["Un pedido de verdad acepta un no como respuesta.","Me cuesta pedir ayuda"],
+  ["Cuando algo te falta, muchas veces lo que te falta es una conversación.","Me cuesta pedir ayuda"],
+  ["Un no que necesita cinco minutos de explicación es un sí con miedo.","Declarar un no"],
+  ["Solo quien sabe decir que no puede decir que sí de verdad.","Declarar un no"],
+  ["Decir no a un pedido no es rechazar a la persona.","Declarar un no"],
+  ["Detrás de cada no hay un sí que estás cuidando.","Declarar un no"],
+  ["\"No soy constante\" no es un hecho. Es un juicio. Y un juicio se puede revisar.","No soy constante"],
+  ["Los juicios no viven en las cosas: viven en quien los dice.","No soy constante"],
+  ["Lo que no se mide, no se puede mejorar.","Día 0"],
+  ["No necesito ser otro para cambiar. Necesito empezar desde donde estoy.","Día 0"]
+];
+// ====== fin de la configuración ======
+
+const hoy = new Date(); hoy.setHours(0,0,0,0);
+const ini = new Date(CONFIG.inicio+"T00:00:00");
+const dia = Math.max(0, Math.round((hoy-ini)/864e5));
+document.getElementById("diaNum").textContent = "DÍA " + dia;
+document.getElementById("diaTxt").textContent = `Día ${dia} · el proceso empezó el 4 de noviembre de 2026`;
+document.getElementById("diaBarra").style.width = Math.min(100, Math.max(2, dia/365*100)) + "%";
+document.getElementById("anio").textContent = hoy.getFullYear();
+const f = FRASES[Math.floor(hoy/864e5) % FRASES.length];
+document.getElementById("frase").textContent = f[0];
+document.getElementById("fraseDe").textContent = `De mi video "${f[1]}"`;
+
+document.getElementById("listaVideos").innerHTML = VIDEOS.map(v => {
+  const listo = v.url && new Date(v.sale+"T00:00:00") <= hoy;
+  const fecha = new Date(v.sale+"T12:00:00").toLocaleDateString("es-AR",{day:"numeric",month:"long"});
+  return `<div class="card"><img src="${v.img}" alt="${v.t}" loading="lazy"><div class="c">
+    <h3>${v.t}</h3><p>${v.d}</p>
+    ${listo ? `<a class="btn btn-sec btn-chico" href="${v.url}" target="_blank" rel="noopener">Ver video</a>`
+            : `<span class="pronto">Se estrena el ${fecha}</span>`}</div></div>`;
+}).join("");
+
+function pintarHerr(tipo){
+  document.getElementById("listaHerr").innerHTML = HERR[tipo].map(h => `<div class="tool"><div class="ico">${h.i}</div><h3>${h.t}</h3><p>${h.d}</p>
+    ${h.url ? `<a class="btn btn-prim btn-chico" href="${h.url}" target="_blank" rel="noopener">Descargar PDF gratis</a>` : `<span class="pronto">Próximamente</span>`}</div>`).join("");
+}
+document.querySelectorAll(".pestanas button").forEach(b => b.onclick = () => {
+  document.querySelectorAll(".pestanas button").forEach(x => x.classList.toggle("on", x === b));
+  pintarHerr(b.dataset.t);
+});
+pintarHerr("coachee");
+
+document.getElementById("cupos").textContent = CONFIG.cuposLibres;
+if (CONFIG.agenda) { const a = document.getElementById("btnAgenda"); a.href = CONFIG.agenda; a.target = "_blank"; }
+const form = document.getElementById("form");
+if (CONFIG.formulario) form.action = CONFIG.formulario;
+else form.onsubmit = e => {
+  e.preventDefault();
+  if (!CONFIG.correo) { document.getElementById("formNota").textContent = "El formulario se activa cuando la página esté publicada."; return; }
+  const d = new FormData(form);
+  location.href = `mailto:${CONFIG.correo}?subject=${encodeURIComponent("Contacto desde la web - " + d.get("nombre"))}&body=${encodeURIComponent(d.get("mensaje") + "\n\n" + d.get("correo"))}`;
+};
+</script>
+</body>
+</html>
