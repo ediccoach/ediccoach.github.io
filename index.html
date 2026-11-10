@@ -214,7 +214,8 @@ footer b{font-family:Audiowide;color:var(--blanco);font-weight:400}
 const CONFIG = {
   inicio: "2026-11-04",          // Día 0 del proceso
   agenda: "",                    // enlace de la agenda (Google Calendar o Calendly). Vacío = lleva al formulario
-  formulario: "",                // dirección de envío del formulario (Formspree u otro). Vacío = abre el correo
+  formulario: "https://docs.google.com/forms/d/e/1FAIpQLSexsL3_LOBefFrwCguifF-8zEXmIbOLnWM-y-lmpA8Spn2dCA/formResponse", // Google Forms
+  campos: {nombre: "entry.1221456928", correo: "entry.181401737", mensaje: "entry.1015238517"},
   correo: "",                    // correo de contacto (solo si quieres mostrarlo)
   cuposLibres: 3
 };
@@ -286,10 +287,21 @@ pintarHerr("coachee");
 document.getElementById("cupos").textContent = CONFIG.cuposLibres;
 if (CONFIG.agenda) { const a = document.getElementById("btnAgenda"); a.href = CONFIG.agenda; a.target = "_blank"; }
 const form = document.getElementById("form");
-if (CONFIG.formulario) form.action = CONFIG.formulario;
-else form.onsubmit = e => {
+form.onsubmit = async e => {
   e.preventDefault();
-  if (!CONFIG.correo) { document.getElementById("formNota").textContent = "El formulario se activa cuando la página esté publicada."; return; }
+  const nota = document.getElementById("formNota");
+  if (CONFIG.formulario) {
+    const d = new FormData(form), envio = new URLSearchParams();
+    for (const [k, campo] of Object.entries(CONFIG.campos)) envio.append(campo, d.get(k));
+    nota.textContent = "Enviando…";
+    try {
+      await fetch(CONFIG.formulario, {method: "POST", mode: "no-cors", body: envio});
+      form.reset();
+      nota.textContent = "¡Gracias! Recibí tu mensaje y te respondo pronto.";
+    } catch { nota.textContent = "No se pudo enviar. Escríbeme por Instagram o TikTok: @ediccoach."; }
+    return;
+  }
+  if (!CONFIG.correo) { nota.textContent = "El formulario se activa pronto."; return; }
   const d = new FormData(form);
   location.href = `mailto:${CONFIG.correo}?subject=${encodeURIComponent("Contacto desde la web - " + d.get("nombre"))}&body=${encodeURIComponent(d.get("mensaje") + "\n\n" + d.get("correo"))}`;
 };
