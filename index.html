@@ -232,9 +232,9 @@ const CONFIG = {
   campos: {nombre: "entry.1221456928", correo: "entry.181401737", mensaje: "entry.1015238517"},
   correo: "",                    // correo de contacto (solo si quieres mostrarlo)
   cuposLibres: 3,
-  // Pódcast "Curiosos del coaching": cuando salga el Ep. 1, poner activo: true y pegar los enlaces.
-  // Los botones sin enlace no se muestran.
-  podcast: {activo: false, youtube: "https://www.youtube.com/@ediccoach/podcasts", spotify: "", apple: "", amazon: ""}
+  // Pódcast "Curiosos del coaching". activo: true = la sección se ve.
+  // estreno: hasta esa fecha dice "Se estrena en..." y los botones dicen "pronto". Después, los botones con enlace se activan.
+  podcast: {activo: true, estreno: "2027-02-01", youtube: "https://www.youtube.com/@ediccoach/podcasts", spotify: "", apple: "", amazon: ""}
 };
 const VIDEOS = [
   {t:"Día 0: mi punto de partida", d:"Me titulé de coach y empiezo mi transformación real.", img:"img/dia0.jpg", url:"https://youtu.be/o-3fae3GtHg", sale:"2026-12-06"},
@@ -305,8 +305,16 @@ document.getElementById("cupos").textContent = CONFIG.cuposLibres;
 if (CONFIG.podcast && CONFIG.podcast.activo) {
   document.getElementById("podcast").hidden = false;
   const plataformas = [["youtube","▶ YouTube","btn-prim"],["spotify","● Spotify","btn-sec"],["apple","◉ Apple Podcasts","btn-sec"],["amazon","♪ Amazon Music","btn-sec"]];
-  document.getElementById("podcastLinks").innerHTML = plataformas.filter(([k]) => CONFIG.podcast[k])
-    .map(([k, t, c]) => `<a class="btn ${c} btn-chico" href="${CONFIG.podcast[k]}" target="_blank" rel="noopener">${t}</a>`).join("");
+  const estreno = CONFIG.podcast.estreno ? new Date(CONFIG.podcast.estreno+"T00:00:00") : null;
+  const yaSalio = !estreno || estreno <= hoy;
+  if (!yaSalio) {
+    const mes = estreno.toLocaleDateString("es-AR",{month:"long", year:"numeric"});
+    document.getElementById("podcastFrec").textContent = `Se estrena en ${mes}. Después, un episodio nuevo cada dos semanas, los lunes.`;
+  }
+  document.getElementById("podcastLinks").innerHTML = plataformas.map(([k, t, c]) =>
+    yaSalio && CONFIG.podcast[k]
+      ? `<a class="btn ${c} btn-chico" href="${CONFIG.podcast[k]}" target="_blank" rel="noopener">${t}</a>`
+      : `<span class="btn btn-sec btn-chico" style="opacity:.55;cursor:default">${t} · pronto</span>`).join("");
   const m = document.querySelector(".menu"), l = document.createElement("a");
   l.href = "#podcast"; l.textContent = "Pódcast"; m.insertBefore(l, m.querySelector('a[href="#herramientas"]'));
 }
