@@ -85,6 +85,16 @@ section.alt .card{background:var(--noche2);background:#0e1628}
 .noes{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
 .noes div{border:1px dashed var(--linea);border-radius:12px;padding:14px;font-size:13px;color:var(--gris)}
 .noes b{color:var(--blanco);display:block;margin-bottom:2px}
+.sub{font-size:22px;font-weight:800;margin:0 0 18px}
+.noes + .sub{margin-top:48px}
+.faq{display:grid;gap:10px;max-width:820px}
+.faq details{background:#0e1628;border:1px solid var(--linea);border-radius:12px}
+.faq details[open]{border-color:var(--azul)}
+.faq summary{cursor:pointer;padding:16px 18px;font-weight:700;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";font-family:Audiowide;color:var(--cian);font-size:20px;line-height:1}
+.faq details[open] summary:after{content:"–"}
+.faq details p{padding:0 18px 16px;color:#cbd5e1;font-size:15px}
 /* contacto */
 form{display:grid;gap:14px;max-width:560px}
 input,textarea,select{width:100%;background:#0e1628;border:1px solid var(--linea);color:var(--blanco);padding:13px 14px;border-radius:10px;font:15px Montserrat}
@@ -169,10 +179,12 @@ footer b{font-family:Audiowide;color:var(--blanco);font-weight:400}
   <div class="tag">SESIONES 1 A 1</div>
   <h2>¿Sabes lo que quieres cambiar, pero no lo sostienes?</h2>
   <p class="intro">El coaching ontológico es un proceso de conversaciones. Yo no te digo qué hacer: pregunto, escucho y te acompaño para que encuentres tus propias respuestas y las conviertas en acciones que eliges tú.</p>
-  <div class="grid g3 pasos">
+  <h3 class="sub">Cómo es un proceso conmigo</h3>
+  <div class="grid g4 pasos">
     <div class="paso"><h3>Charla de acuerdo</h3><p>30 minutos, gratis y sin compromiso. Vemos qué quieres lograr y si el coaching es lo que necesitas.</p></div>
     <div class="paso"><h3>Sesiones semanales</h3><p>Por videollamada, de 45 a 60 minutos. Cada una termina con acciones concretas, elegidas por ti.</p></div>
     <div class="paso"><h3>Seguimiento</h3><p>Cada sesión empieza revisando lo que te comprometiste a hacer. Así el cambio se sostiene.</p></div>
+    <div class="paso"><h3>Cierre</h3><p>Miramos juntos dónde estabas al empezar y dónde estás hoy. Lo que cambió lo pones en palabras tú.</p></div>
   </div>
 
   <div class="oferta">
@@ -198,6 +210,16 @@ footer b{font-family:Audiowide;color:var(--blanco);font-weight:400}
     <div><b>No es asesoría</b>No te digo qué hacer. Las respuestas salen de ti, y por eso las cumples.</div>
     <div><b>No es una clase</b>Para aprender herramientas está el canal. En la sesión, el tema eres tú.</div>
     <div><b>No es magia</b>El trabajo lo haces tú. Yo pregunto, escucho y te sostengo en tu compromiso.</div>
+  </div>
+
+  <h3 class="sub" id="preguntas">Preguntas frecuentes</h3>
+  <div class="faq">
+    <details><summary>¿Y si no sé bien qué quiero trabajar?</summary><p>Está bien. Para eso es la charla de acuerdo: muchas veces lo que quieres cambiar aparece mientras conversamos. No hace falta llegar con todo claro.</p></details>
+    <details><summary>¿Cuántas sesiones hacen falta?</summary><p>Depende de lo que quieras lograr. Lo acordamos juntos en la charla de acuerdo, y en cualquier momento podemos revisarlo.</p></details>
+    <details><summary>¿Qué pasa con lo que cuento en las sesiones?</summary><p>Es confidencial. Nunca aparece en mis videos ni en mis redes. En los 3 procesos gratis la sesión se graba, pero esa grabación solo la vemos mi mentor de la escuela y yo, para mi formación.</p></details>
+    <details><summary>¿Es por videollamada? ¿Desde dónde puedo hacerlo?</summary><p>Sí, todas las sesiones son por videollamada. Puedes hacerlo desde cualquier lugar con conexión y un rato a solas para hablar tranquilo.</p></details>
+    <details><summary>¿Cuánto cuesta?</summary><p>Los primeros 3 procesos son gratis. Después, las sesiones tendrán un precio de lanzamiento bajo, que te cuento en la charla de acuerdo, antes de que decidas nada.</p></details>
+    <details><summary>¿Necesito saber algo de coaching?</summary><p>No. Solo traer algo que te importe cambiar y ganas de mirarlo con honestidad.</p></details>
   </div>
 </div></section>
 
