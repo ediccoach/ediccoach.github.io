@@ -46,7 +46,7 @@ h1 em{font-style:normal;color:var(--atardecer)}
 .barra{height:10px;background:var(--linea);border-radius:10px;margin-top:8px;overflow:hidden}
 .barra i{display:block;height:100%;background:linear-gradient(90deg,var(--azul),var(--cian));border-radius:10px}
 /* secciones */
-section{padding:70px 0}
+section{padding:70px 0;scroll-margin-top:40px}
 section.alt{background:var(--noche2);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
 h2{font-size:clamp(28px,3.6vw,40px);font-weight:800;line-height:1.15;margin:8px 0 12px}
 .intro{color:#cbd5e1;max-width:680px;margin-bottom:34px}
@@ -202,6 +202,7 @@ footer b{font-family:Audiowide;color:var(--blanco);font-weight:400}
     <div style="text-align:center">
       <div class="cupos" id="cupos">3</div><div class="nota" style="margin:4px 0 18px">lugares disponibles</div>
       <a class="btn btn-prim" id="btnAgenda" href="#contacto">Agendar charla gratis</a>
+      <p class="nota"><a href="#contacto" id="btnEscribir">¿Prefieres escribirme primero?</a></p>
     </div>
   </div>
 
@@ -341,6 +342,13 @@ if (CONFIG.podcast && CONFIG.podcast.activo) {
   l.href = "#podcast"; l.textContent = "Pódcast"; m.insertBefore(l, m.querySelector('a[href="#herramientas"]'));
 }
 if (CONFIG.agenda) { const a = document.getElementById("btnAgenda"); a.href = CONFIG.agenda; a.target = "_blank"; }
+document.getElementById("btnEscribir").onclick = e => {
+  e.preventDefault();
+  document.getElementById("contacto").scrollIntoView({behavior: "smooth"});
+  const m = document.getElementById("m");
+  if (!m.value.trim()) m.value = "Hola Edic, me interesa la charla de acuerdo. Me gustaría trabajar… ";
+  setTimeout(() => document.getElementById("n").focus({preventScroll: true}), 400);
+};
 const form = document.getElementById("form");
 form.onsubmit = async e => {
   e.preventDefault();
